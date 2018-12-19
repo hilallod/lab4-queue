@@ -1,0 +1,5 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (Simulator_queue.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  MyForm.cpp
+c:\users\pudge\documents\github\mp2-lab4-queue-master\queue_visual\myform.h(375): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  Queue_visual.vcxproj -> C:\Users\Pudge\Documents\GitHub\mp2-lab4-queue-master\Debug\Queue_visual.exe

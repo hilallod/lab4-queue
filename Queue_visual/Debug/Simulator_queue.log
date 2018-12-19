@@ -1,0 +1,3 @@
+﻿  MyForm.cpp
+c:\users\pudge\documents\github\mp2-lab4-queue-master\simulator_queue\myform.h(375): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  Simulator_queue.vcxproj -> C:\Users\Pudge\Documents\GitHub\mp2-lab4-queue-master\Debug\Simulator_queue.exe

@@ -1,197 +1,147 @@
+#pragma once
 template <class T>
-class TQueue {
-	int MaxSize;
-	int Size;
-	int first;
-	int last;
-	T* mas;
+class TQueue
+{
+private:
+	int Size, MaxSize, first, last;
+	T* ord;
 public:
-	TQueue<T> (int _msize=100) {
-		if (_msize<=0)
-			throw -1;
-		MaxSize=_msize;
-		mas = new T[MaxSize];
-		Size = 0;
-		first = 0;
-		last = -1;
-	}
-	~TQueue<T> () {
-		delete[] mas;
-	}
-	TQueue<T> (const TQueue<T>& TQ) {
-		MaxSize = TQ.MaxSize;
-		Size = TQ.Size;
-		first = TQ.first;
-		last = TQ.last;
-		mas = new T [MaxSize];
+	TQueue(int _MaxSize = 10);
+	TQueue(const TQueue <T> &queue);
+	~TQueue();
+	TQueue operator =(const TQueue  &queue);
+	bool operator==(const TQueue <T> &queue) const;
+	bool operator!=(const TQueue &queue) const;
+	bool IsFull() const;
+	bool IsEmpty() const;
+	void Push(const T elem);
+	int GetSize() { return Size; }
+	int GetMaxSize() { return MaxSize; }
+	int First() { return first; }
+	T Pop();
+	T WhoIsFirst() const;
+	T WhoIsLast()const;
+	void Clear();
 
-		if (first <= last)
-			for(int i=first; i<=last; i++)
-				mas[i] = TQ.mas[i];
-		else {
-			for(int i=first; i<MaxSize; i++)
-				mas[i] = TQ.mas[i];
-			for(int i=0; i<=last; i++)
-				mas[i] = TQ.mas[i];
-		}
-
-		return(*this);
-	}
-	TQueue<T>& operator= (const TQueue<T>& TQ) {
-		if(this!=&TQ) 
-		{
-			if(MaxSize!=TQ.MaxSize) 
-			{
-				delete[] mas;
-				MaxSize = TQ.MaxSize;
-				mas = new T[MaxSize];
-			}
-			Size = TQ.Size;
-			first = TQ.first;
-			last = TQ.last;
-
-			if (first <= last)
-				for(int i=first; i<=last; i++)
-					mas[i] = TQ.mas[i];
-			else 
-			{
-				for(int i=first; i<MaxSize; i++)
-					mas[i] = TQ.mas[i];
-				for(int i=0; i<=last; i++)
-					mas[i] = TQ.mas[i];
-			}
-		}
-		
-		return(*this);
-	}
-
-	int IsFull()			
-	{
-		if(Size==MaxSize)
-			return 1;
-		else
-			return 0;
-	}
-	int IsEmpty()			
-	{
-		if(Size==0)
-			return 1;
-		else 
-			return 0;
-	}
-
-	void Push (T elem) {
-		if (IsFull())
-			throw -1;
-		if(last == MaxSize-1)
-			last = 0;
-		else
-			last++;
-		mas[last] = elem;
-		Size++;
-	}
-	T Pop () {
-		if(IsEmpty())
-			throw -1;
-		T buf = mas[first];
-		if(first == MaxSize-1)
-			first = 0;
-		else
-			first++;
-		Size--;
-		return buf; 
-	}
-	T Top()	{
-		if(IsEmpty())
-			throw -1;
-		return mas[first];
-	}
-
-	void SetMaxSize(int s) {
-		if(!IsEmpty())
-			throw -1;
-		MaxSize=s;
-		delete[] mas;
-		mas = new T[MaxSize];
-	}
-	int GetFirstPos() {
-		return first;
-	}
-	T First() {
-		if(IsEmpty())
-			throw -1;
-		return mas[first];
-	}
-	T Last() {
-		if(IsEmpty())
-			throw -1;
-		return mas[last];
-	}
-	int NumberElem() {
-		return Size;
-	}
 };
 
 template <class T>
-struct TLink {
-	T var;
-	TLink *pNext;
-};
+TQueue <T>::TQueue(int _MaxSize)
+{
+	if (_MaxSize <= 0)
+		throw _MaxSize;
+	MaxSize = _MaxSize;
+	ord = new T[MaxSize];
+	first = 0;
+	last = -1;
+	Size = 0;
+}
+template <class T>
+TQueue <T> ::TQueue(const TQueue <T> & queue)
+{
+	MaxSize = queue.MaxSize;
+	first = queue.first;
+	last = queue.last;
+	Size = queue.Size;
+	ord = new T[MaxSize];
+	for (int i = 0; i < MaxSize; i++)
+		ord[i] = queue.ord[i];
+}
+template <class T>
+TQueue<T> ::~TQueue()
+{
+	delete[] ord;
+}
 
 template <class T>
-class TQueue2 {
-	TLink *pFirst;
-	TLink *pLast;
-public:
-	TQueue2<T>() {
-		pFirst=pLast=NULL;
+TQueue <T> TQueue <T>::operator=(const TQueue <T> &queue)
+{
+	if (MaxSize != queue.MaxSize)
+	{
+		delete[] ord;
+		ord = new T[queue.MaxSize];
 	}
-	~TQueue2<T>() {
-		TLink *tmp=pFirst;
-		where (pFirst!=NULL) {
-			tmp = pFirst->pNext;
-			delete pFirst;
-			pFirst = tmp;
-		}
-	}
+	MaxSize = queue.MaxSize;
+	first = queue.first;
+	last = queue.last;
+	Size = queue.Size;
+	for (int i = 0; i < MaxSize; i++)
+		ord[i] = queue.ord[i];
+	return *this;
+}
+template <class T>
+bool TQueue <T>::operator==(const TQueue  &queue) const
+{
+	if (!(MaxSize == queue.MaxSize && Size == queue.Size && first == queue.first && last && queue.last))
+		return false;
+	for (int i = 0; i < MaxSize; i++)
+		if (ord[i] != queue.ord[i])
+			return false;
+	return true;
+}
+template <class T>
+bool TQueue <T>::operator!=(const TQueue &queue) const
+{
+	return !(*this == queue);
+}
+template <class T>
+bool  TQueue <T>::IsEmpty() const
+{
+	if (Size == 0)
+		return true;
+	else
+		return false;
+}
+template <class T>
+bool TQueue <T> ::IsFull() const
+{
+	if (Size == MaxSize)
+		return true;
+	else
+		return false;
+}
+template <class T>
+void TQueue <T>::Push(const T elem)
+{
+	if (this->IsFull())
+		throw "Queue is full";
+	if (last == MaxSize - 1)
+		last = 0;
+	else
+		last++;
+	ord[last] = elem;
+	Size++;
+}
+template <class T>
+T TQueue <T> ::Pop()
+{
+	if (this->IsEmpty())
+		throw "Queue is empty";
+	int tmp = first;
+	first++;
+	first = first % MaxSize;
+	Size--;
+	return ord[tmp];
+}
+template <class T>
+T TQueue <T>::WhoIsFirst() const
+{
+	if (IsEmpty())
+		throw "queue is empty";
+	return ord[first];
+}
+template <class T>
+T TQueue <T>::WhoIsLast() const
+{
+	return ord[last];
+}
+template <class T>
+void TQueue<T>::Clear()
+{
+	delete[] ord;
+	ord = new T[queue.MaxSize];
+	first = 0;
+	last = -1;
+	Size = 0;
 
-	int IsEmpty() {
-		if (pFirst==NULL)
-			return 1;
-		else
-			return 0;
-	}
-	int IsFull() {
-		TLink *tmp=new TLink;
-		if(tmp==NUL)
-			return 1;
-		else {
-			delete tmp;
-			return 0;
-		}
-	}
-
-	void Push (T elem) {
-		TLink *tmp=new TLink;
-		tmp->val = elem;
-		tmp->pNext = NULL;
-		if(pFirst==NULL)
-			pFirst = pLast = tmp;
-		else {
-			pLast->pNext = tmp;
-			pLast = tmp;
-		}
-	}
-	T Pop() {
-		//если не пустой
-		T buf = pFirst->var;
-		TLink *tmp = pFirst;
-		if(pFirst==pLast)
-			pFirst=pLast=NULL;
-		else
-			pFirst = pFirst->pNext;
-		delete tmp;
-		return buf;
-	}
-
-};
+}

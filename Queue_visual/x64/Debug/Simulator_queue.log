@@ -1,0 +1,4 @@
+﻿  MyForm.cpp
+c:\users\pudge\desktop\lab4-queue-version1.0\vs17\simulator_queue\myform.h(373): warning C4244: аргумент: преобразование "double" в "int", возможна потеря данных
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  Simulator_queue.vcxproj -> C:\Users\Pudge\Desktop\lab4-queue-Version1.0\VS17\x64\Debug\Simulator_queue.exe

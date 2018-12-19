@@ -2,8 +2,7 @@
 
 #include "gtest.h"
 
-TEST(TQueue, can_create_queue_with_positive_size)
+TEST(TQueue, can_create_queue_with_positive_max_size)
 {
-	ASSERT_NO_THROW(TQueue<int> TQ(3));
+	EXPECT_NO_THROW(TQueue <int> queue(5));
 }
-
