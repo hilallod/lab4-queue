@@ -1,2 +1,16 @@
-﻿  Queue.h
-  mp2-lab4-queue.vcxproj -> C:\Users\Pudge\Documents\GitHub\mp2-lab4-queue-master\Debug\mp2-lab4-queue.exe
+﻿Сборка начата 26.12.2018 23:39:45.
+     1>Проект "D:\Git\lab4-queue\mp2-lab4-queue\mp2-lab4-queue.vcxproj" в узле 2 (целевые объекты Rebuild).
+     1>ClCompile:
+         D:\Program\MVS\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp Queue.h
+         Queue.h
+         main.cpp
+         Создание кода...
+       Link:
+         D:\Program\MVS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Git\lab4-queue\Debug\mp2-lab4-queue.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Git\lab4-queue\Debug\mp2-lab4-queue.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Git\lab4-queue\Debug\mp2-lab4-queue.lib" /MACHINE:X86 Debug\main.obj
+         Debug\Queue.obj
+         mp2-lab4-queue.vcxproj -> D:\Git\lab4-queue\Debug\mp2-lab4-queue.exe
+     1>Сборка проекта "D:\Git\lab4-queue\mp2-lab4-queue\mp2-lab4-queue.vcxproj" завершена (целевые объекты Rebuild).
+
+Сборка успешно завершена.
+
+Затраченное время: 00:00:02.10

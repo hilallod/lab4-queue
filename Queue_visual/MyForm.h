@@ -22,7 +22,7 @@ namespace Simulatorqueue {
 			rand = gcnew Random();
 			DrawPen = gcnew Pen(Color::Black);
 			DrawPen->Width = 15.0;
-			ClearPen = gcnew Pen(Color::Pink);
+			ClearPen = gcnew Pen(Color::MediumTurquoise);
 			ClearPen->Width = 15.0;
 
 			CenterX =190;
@@ -53,6 +53,7 @@ namespace Simulatorqueue {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label8;
 	private: System::ComponentModel::IContainer^  components;
 
 	private:
@@ -97,6 +98,7 @@ namespace Simulatorqueue {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
@@ -114,11 +116,11 @@ namespace Simulatorqueue {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label1->Location = System::Drawing::Point(40, 29);
+			this->label1->Location = System::Drawing::Point(12, 26);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(221, 18);
+			this->label1->Size = System::Drawing::Size(225, 18);
 			this->label1->TabIndex = 0;
-			this->label1->Text = L"Максимальная длина очереди";
+			this->label1->Text = L"Максимальная длина очереди:";
 			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
 			// label2
@@ -126,11 +128,11 @@ namespace Simulatorqueue {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(79, 56);
+			this->label2->Location = System::Drawing::Point(22, 74);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(184, 18);
+			this->label2->Size = System::Drawing::Size(188, 18);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Исходная длина очереди";
+			this->label2->Text = L"Исходная длина очереди:";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
 			// label3
@@ -138,51 +140,62 @@ namespace Simulatorqueue {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(78, 83);
+			this->label3->Location = System::Drawing::Point(-1, 122);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(186, 18);
+			this->label3->Size = System::Drawing::Size(260, 18);
 			this->label3->TabIndex = 2;
-			this->label3->Text = L"Вероятность добавления";
+			this->label3->Text = L"Вероятность добавления в очередь";
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(97, 110);
+			this->label4->Location = System::Drawing::Point(-1, 171);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(167, 18);
+			this->label4->Size = System::Drawing::Size(253, 18);
 			this->label4->TabIndex = 3;
-			this->label4->Text = L"Вероятность удаления";
+			this->label4->Text = L"Вероятность удаления из очереди:";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label5->Location = System::Drawing::Point(244, 450);
+			this->label5->Location = System::Drawing::Point(12, 405);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(162, 18);
+			this->label5->Size = System::Drawing::Size(202, 18);
 			this->label5->TabIndex = 4;
-			this->label5->Text = L"Добавлено в очередь";
+			this->label5->Text = L"Было добавлено в очередь";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label6->Location = System::Drawing::Point(239, 480);
+			this->label6->Location = System::Drawing::Point(12, 453);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(167, 18);
+			this->label6->Size = System::Drawing::Size(207, 18);
 			this->label6->TabIndex = 5;
-			this->label6->Text = L"Извлечено из очереди";
+			this->label6->Text = L"Было извлечено из очереди";
 			this->label6->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
+			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label8->Location = System::Drawing::Point(65, 8);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(126, 18);
+			this->label8->TabIndex = 15;
+			this->label8->Text = L"Введите данные:";
 			// 
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button1->Location = System::Drawing::Point(412, 29);
+			this->button1->Location = System::Drawing::Point(437, 47);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 45);
 			this->button1->TabIndex = 6;
@@ -194,7 +207,7 @@ namespace Simulatorqueue {
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox1->Location = System::Drawing::Point(273, 29);
+			this->textBox1->Location = System::Drawing::Point(68, 47);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(100, 24);
 			this->textBox1->TabIndex = 7;
@@ -203,7 +216,7 @@ namespace Simulatorqueue {
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox2->Location = System::Drawing::Point(273, 56);
+			this->textBox2->Location = System::Drawing::Point(68, 95);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(100, 24);
 			this->textBox2->TabIndex = 8;
@@ -212,7 +225,7 @@ namespace Simulatorqueue {
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox3->Location = System::Drawing::Point(273, 83);
+			this->textBox3->Location = System::Drawing::Point(68, 144);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(100, 24);
 			this->textBox3->TabIndex = 9;
@@ -221,7 +234,7 @@ namespace Simulatorqueue {
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->textBox4->Location = System::Drawing::Point(273, 110);
+			this->textBox4->Location = System::Drawing::Point(68, 192);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(100, 24);
 			this->textBox4->TabIndex = 10;
@@ -232,7 +245,7 @@ namespace Simulatorqueue {
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->textBox5->ForeColor = System::Drawing::SystemColors::WindowText;
-			this->textBox5->Location = System::Drawing::Point(412, 450);
+			this->textBox5->Location = System::Drawing::Point(68, 426);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(100, 24);
 			this->textBox5->TabIndex = 11;
@@ -243,7 +256,7 @@ namespace Simulatorqueue {
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
 			this->textBox6->ForeColor = System::Drawing::SystemColors::WindowText;
-			this->textBox6->Location = System::Drawing::Point(412, 480);
+			this->textBox6->Location = System::Drawing::Point(68, 474);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(100, 24);
 			this->textBox6->TabIndex = 12;
@@ -252,7 +265,7 @@ namespace Simulatorqueue {
 			// 
 			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->button2->Location = System::Drawing::Point(412, 92);
+			this->button2->Location = System::Drawing::Point(437, 122);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(75, 42);
 			this->button2->TabIndex = 13;
@@ -268,20 +281,21 @@ namespace Simulatorqueue {
 			// label7
 			// 
 			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::MediumTurquoise;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label7->ForeColor = System::Drawing::Color::Pink;
-			this->label7->Location = System::Drawing::Point(207, 173);
+			this->label7->ForeColor = System::Drawing::Color::MediumTurquoise;
+			this->label7->Location = System::Drawing::Point(351, 442);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(82, 29);
+			this->label7->Size = System::Drawing::Size(112, 29);
 			this->label7->TabIndex = 14;
-			this->label7->Text = L"EROR";
+			this->label7->Text = L"Ошибка!";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::Pink;
+			this->BackColor = System::Drawing::Color::MediumTurquoise;
 			this->ClientSize = System::Drawing::Size(524, 511);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->button2);
@@ -292,6 +306,7 @@ namespace Simulatorqueue {
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
@@ -321,7 +336,7 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			Size = Convert::ToInt32(textBox2->Text);
 			p = Convert::ToDouble(textBox3->Text);
 			q = Convert::ToDouble(textBox4->Text);
-			label7->ForeColor = System::Drawing::Color::Pink;
+			label7->ForeColor = System::Drawing::Color::MediumTurquoise;
 			stop = 1;
 		}
 		catch (...)
@@ -380,5 +395,7 @@ private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e
 			 int finish = 360 * queue->GetSize() / queue->GetMaxSize();
 			 g->DrawArc(DrawPen, CenterX, CenterY, Height, Width,	start, finish);
 		 }
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
